@@ -1,11 +1,12 @@
-﻿using System;
+﻿ using System;
 
 namespace CodeBlogFitness.BL.Model
 {
     /// <summary>
     /// Пользователь.
     /// </summary>
-    class User
+    [Serializable]
+    public class User
     {
         #region Свойства
         /// <summary>
@@ -16,12 +17,12 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Пол.
         /// </summary>
-        public Gender Gender { get; }
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// День рождения.
         /// </summary>
-        public DateTime BirthDate { get; }
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Вес.
@@ -32,6 +33,11 @@ namespace CodeBlogFitness.BL.Model
         /// Рост.
         /// </summary>
         public double Height { get; set; }
+
+        /// <summary>
+        /// Возраст пользователя.
+        /// </summary>
+        public int Age { get { return DateTime.Now.Year - BirthDate.Year; } }
         #endregion
 
         /// <summary>
@@ -50,12 +56,12 @@ namespace CodeBlogFitness.BL.Model
                 throw new ArgumentNullException("Имя поля не может быть пустым или null", nameof(name));
             }
 
-            if(Gender == null)
+            if(gender == null)
             {
                 throw new ArgumentNullException("Пол не может быть null.", nameof(gender));
             }
 
-            if (birthDate < DateTime.Parse("01.01.1901") || birthDate >=DateTime.Now)
+            if (birthDate < DateTime.Parse("01.01.1901") || birthDate >= DateTime.Now)
             {
                 throw new ArgumentException("Невозможная дата рождения.", nameof(birthDate));
             }
@@ -71,15 +77,25 @@ namespace CodeBlogFitness.BL.Model
             }
             #endregion
 
+            Name = name;
             Gender = gender;
             BirthDate = birthDate;
             Weight = weight;
             Height = height;
         }
 
+        public User(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("Имя поля не может быть пустым или null", nameof(name));
+            }
+            Name = name;
+        }
+
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Age;
         }
     }
 }
