@@ -117,13 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Calorie" xml:space="preserve">
+    <value>Калории</value>
+  </data>
+  <data name="Carbohydrates" xml:space="preserve">
+    <value>Углеводы</value>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>Введите</value>
+  </data>
+  <data name="EnterGender" xml:space="preserve">
+    <value>Введите гендер</value>
+  </data>
+  <data name="EnterHeight" xml:space="preserve">
+    <value>Введите рост</value>
+  </data>
+  <data name="EnterMeal" xml:space="preserve">
+    <value>E - введите для записи съеденой еды(наверное)</value>
+  </data>
   <data name="EnterName" xml:space="preserve">
     <value>Введите имя пользователя</value>
+  </data>
+  <data name="EnterProductName" xml:space="preserve">
+    <value>Введите название продукта</value>
+  </data>
+  <data name="EnterServingWeight" xml:space="preserve">
+    <value>Введите вес порции</value>
+  </data>
+  <data name="EnterWeight" xml:space="preserve">
+    <value>Введите рост</value>
+  </data>
+  <data name="Fats" xml:space="preserve">
+    <value>Жиры</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Вас приветствую Я</value>
   </data>
+  <data name="Protein" xml:space="preserve">
+    <value>Протеин</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>***** Запуск приложения *****</value>
+  </data>
+  <data name="WhatToDo" xml:space="preserve">
+    <value>Что ты хочешь делать?</value>
   </data>
 </root>
