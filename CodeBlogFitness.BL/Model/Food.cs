@@ -1,64 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CodeBlogFitness.BL.Model
 {
-    /// <summary>
-    /// Еда любимая.
-    /// </summary>  
     [Serializable]
     public class Food
     {
-        #region Свойства
-        /// <summary>
-        /// Название еды.
-        /// </summary>
+        public int Id { get; set; }
         public string Name { get; set; }
+        public double Callories { get; set; }
 
         /// <summary>
-        /// Калории за 100 грамм продукта.
+        /// Белки
         /// </summary>
-        public double Calories { get; }
+        public double Proteins { get; set; }
 
         /// <summary>
-        /// Белки.
+        /// Жиры
         /// </summary>
-        public double Proteins { get; }
+        public double Fats { get; set; }
+        public double Carbohydates { get; set; }
 
         /// <summary>
-        /// Жиры.
+        /// Углеводы
         /// </summary>
-        public double Fats { get; }
+        public double Carbohydrates { get; set; }
 
         /// <summary>
-        /// Углеводы.
+        /// Калории за 100 грамм продукта
         /// </summary>
-        public double Carbohydrates { get; }
-        #endregion
+        public double Calories { get; set; }
 
-        /// <summary>
-        /// Получить готовый продукт по имени.
-        /// </summary>
-        /// <param name="name"> Название продукта. </param>
+        public virtual ICollection<Eating> Eatings { get; set; }
+
+        public Food() { }
+
         public Food(string name) : this(name, 0, 0, 0, 0) { }
 
-        /// <summary>
-        /// Создать новую еду.
-        /// </summary>
-        /// <param name="name"> Название еды. </param>
-        /// <param name="calories"> Калории за 100 грамм продукта. </param>
-        /// <param name="proteins"> Белки.</param>
-        /// <param name="fats"> Жиры. </param>
-        /// <param name="carbohydrates"> Углеводы. </param>
-        public Food(string name, double calories, double proteins, double fats, double carbohydrates)
+        public Food(string name, double callories, double proteins, double fats, double carbohydates)
         {
-            //TODO: проверка
+            // TODO: проверка
+
 
             Name = name;
-            Calories = calories / 100.0;
+            Callories = callories / 100.0;
             Proteins = proteins / 100.0;
             Fats = fats / 100.0;
-            Carbohydrates = carbohydrates / 100.0;
-
+            Carbohydates = carbohydates / 100.0 ;
         }
 
         public override string ToString()

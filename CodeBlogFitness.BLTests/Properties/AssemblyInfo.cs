@@ -2,25 +2,25 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Управление общими сведениями о сборке осуществляется с помощью указанного ниже 
+// Управление общими сведениями о сборке осуществляется посредством следующего 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
-// общие сведения об этой сборке.
+// связанные со сборкой.
 [assembly: AssemblyTitle("CodeBlogFitness.BLTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CodeBlogFitness.BLTests")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Установка параметра ComVisible в значение false делает типы в этой сборке невидимыми 
-// для компонентов модели COM.  Если тип в этой сборке необходимо сделать доступным 
+// Задание значения false для атрибута ComVisible приведет к тому, что типы из этой сборки станут невидимыми 
+// для COM-компонентов.  Если к одному из типов этой сборки необходимо обращаться из 
 // модели COM, задайте для атрибута ComVisible этого типа значение true.
 [assembly: ComVisible(false)]
 
-// Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("fd70161b-62bc-4a6b-92d7-9784ed5ae490")]
+// Если данный проект доступен для модели COM, следующий GUID используется в качестве идентификатора библиотеки типов
+[assembly: Guid("aed089f1-1dc3-4aa6-9bd5-9767176c90a7")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

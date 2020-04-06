@@ -9,7 +9,10 @@ namespace CodeBlogFitness.BL.Model
     [Serializable]
     public class Exercise
     {
-        #region
+        #region Свойства
+
+        public int Id { get; set; }
+
         /// <summary>
         /// Нвчало упражнения.
         /// </summary>
@@ -20,16 +23,24 @@ namespace CodeBlogFitness.BL.Model
         /// </summary>
         public DateTime Finish { get; set; }
 
+        public int ActivityId { get; set; }
+
         /// <summary>
         /// Вид упражнения.
         /// </summary>
-        public Activity Activity { get; set; }
+        public virtual Activity Activity { get; set; }
+
+        public int UserId { get; set; }
 
         /// <summary>
         /// Пользователь.
         /// </summary>
-        public User User { get; set; }
+        public virtual User User { get; set; }
         #endregion
+
+        public Exercise() { }
+        
+
         /// <summary>
         /// Создать новое упражнение.
         /// </summary>

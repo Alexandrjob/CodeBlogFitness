@@ -1,7 +1,11 @@
-﻿using CodeBlogFitness.BL.Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CodeBlogFitness.BL.Controller;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CodeBlogFitness.BL.Model;
 
 namespace CodeBlogFitness.BL.Controller.Tests
 {

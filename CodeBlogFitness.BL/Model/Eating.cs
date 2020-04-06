@@ -5,44 +5,28 @@ using System.Linq;
 namespace CodeBlogFitness.BL.Model
 {
     /// <summary>
-    /// Прием пищи.
+    /// Прием пищи
     /// </summary>
     [Serializable]
     public class Eating
     {
-        #region Свойства
-        /// <summary>
-        /// Время приема пищи.
-        /// </summary>
-        public DateTime Moment { get; }
+        public int Id { get; set; }
+        public DateTime Moment { get; set; }
 
-        /// <summary>
-        /// Список известных продуктов.
-        /// </summary>
         public Dictionary<Food, double> Foods { get; set; }
 
-        /// <summary>
-        /// Пользователь.
-        /// </summary>
-        public User User { get; }
-        #endregion
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
 
-        /// <summary>
-        /// Создание нового приема пищи.
-        /// </summary>
-        /// <param name="user"> Пользователь, которых жрет. </param>
+        public Eating() { }
+
         public Eating(User user)
         {
-            User = user ?? throw new ArgumentNullException("Пользователь не может быть пустым", nameof(user));
+            User = user ?? throw new ArgumentNullException("Пользователь не может быть пустым.", nameof(user));
             Moment = DateTime.UtcNow;
             Foods = new Dictionary<Food, double>();
-        }       
+        }
 
-        /// <summary>
-        /// Добавление новых продуктов в существующий список продуктов.
-        /// </summary>
-        /// <param name="food"> Продукт. </param>
-        /// <param name="weight"> Вес. </param>
         public void Add(Food food, double weight)
         {
             var product = Foods.Keys.FirstOrDefault(f => f.Name.Equals(food.Name));

@@ -1,4 +1,5 @@
-﻿ using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CodeBlogFitness.BL.Model
 {
@@ -9,20 +10,24 @@ namespace CodeBlogFitness.BL.Model
     public class User
     {
         #region Свойства
+        public int Id { get; set; }
+
         /// <summary>
         /// Имя.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Пол.
         /// </summary>
-        public Gender Gender { get; set; }
+        
+        public int? GenderId { get; set; }
+        public virtual Gender Gender { get; set; }
 
         /// <summary>
-        /// День рождения.
+        /// Дата рождения.
         /// </summary>
-        public DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Вес.
@@ -34,26 +39,34 @@ namespace CodeBlogFitness.BL.Model
         /// </summary>
         public double Height { get; set; }
 
-        /// <summary>
-        /// Возраст пользователя.
-        /// </summary>
+        //DateTime nowDate = DateTime.Today;
+        //int age = nowDate.Year - birthDate.Year;
+        //if (birthDate > nowDate.AddYears(-age)) age--;
+
+        public virtual ICollection<Eating> Eatings { get; set; }
+        public virtual ICollection<Exercise> Exercises { get; set; }
+
         public int Age { get { return DateTime.Now.Year - BirthDate.Year; } }
         #endregion
 
         /// <summary>
-        /// Создание нового пользователя.
+        /// Создать нового пользователя.
         /// </summary>
         /// <param name="name"> Имя. </param>
-        /// <param name="gender"> пол. </param>
+        /// <param name="gender"> Пол. </param>
         /// <param name="birthDate"> Дата рождения. </param>
         /// <param name="weight"> Вес. </param>
         /// <param name="height"> Рост. </param>
-        public User(string name, Gender gender, DateTime birthDate, double weight, double height)
+        public User(string name, 
+                    Gender gender, 
+                    DateTime birthDate, 
+                    double weight, 
+                    double height)
         {
-            #region Проверка входных параметров
+            #region Проверка условий
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Имя поля не может быть пустым или null", nameof(name));
+                throw new ArgumentNullException("Имя пользователя не может быть пустым или null", nameof(name));
             }
 
             if(gender == null)
@@ -61,7 +74,7 @@ namespace CodeBlogFitness.BL.Model
                 throw new ArgumentNullException("Пол не может быть null.", nameof(gender));
             }
 
-            if (birthDate < DateTime.Parse("01.01.1901") || birthDate >= DateTime.Now)
+            if(birthDate < DateTime.Parse("01.01.1900") || birthDate >= DateTime.Now )
             {
                 throw new ArgumentException("Невозможная дата рождения.", nameof(birthDate));
             }
@@ -73,7 +86,7 @@ namespace CodeBlogFitness.BL.Model
 
             if(height <= 0)
             {
-                throw new ArgumentException("Рост  не может быть меньше либо равен нулю.", nameof(height));
+                throw new ArgumentException("Рост не может быть меньше либо равен нулю.", nameof(height));
             }
             #endregion
 
@@ -84,12 +97,15 @@ namespace CodeBlogFitness.BL.Model
             Height = height;
         }
 
+        public User() { }
+
         public User(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Имя поля не может быть пустым или null", nameof(name));
+                throw new ArgumentNullException("Имя пользователя не может быть пустым или null", nameof(name));
             }
+
             Name = name;
         }
 

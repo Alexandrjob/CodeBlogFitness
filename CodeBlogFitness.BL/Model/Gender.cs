@@ -1,17 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CodeBlogFitness.BL.Model
 {
     /// <summary>
-    /// Пол человека.
+    /// Пол.
     /// </summary>
     [Serializable]
     public class Gender
-    { 
+    {
+        public int Id { get; set; }
+
         /// <summary>
-        /// Название пола.
+        /// Название.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+
+        public Gender() { }
 
         /// <summary>
         /// Создать новый пол.
@@ -19,9 +26,9 @@ namespace CodeBlogFitness.BL.Model
         /// <param name="name"> Имя пола. </param>
         public Gender(string name)
         {
-            if (string.IsNullOrWhiteSpace(name))
+            if(string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Имя поля не может быть пустым или null", nameof(name));
+                throw new ArgumentNullException("Имя пола не может быть пустым или null", nameof(name));
             }
 
             Name = name;

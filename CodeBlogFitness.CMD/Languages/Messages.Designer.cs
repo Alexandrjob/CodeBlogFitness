@@ -19,7 +19,7 @@ namespace CodeBlogFitness.CMD.Languages {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Messages {
@@ -61,6 +61,15 @@ namespace CodeBlogFitness.CMD.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите пол.
+        /// </summary>
+        internal static string EnterGender {
+            get {
+                return ResourceManager.GetString("EnterGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Введите имя пользователя.
         /// </summary>
         internal static string EnterName {
@@ -70,20 +79,11 @@ namespace CodeBlogFitness.CMD.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Вас приветствую Я.
+        ///   Ищет локализованную строку, похожую на ​Вас приветствует приложение CodeBlogFitness.
         /// </summary>
         internal static string Hello {
             get {
                 return ResourceManager.GetString("Hello", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на ***** Запуск приложения *****.
-        /// </summary>
-        internal static string Status {
-            get {
-                return ResourceManager.GetString("Status", resourceCulture);
             }
         }
     }

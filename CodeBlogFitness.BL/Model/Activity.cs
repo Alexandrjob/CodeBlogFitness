@@ -1,31 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CodeBlogFitness.BL.Model
 {
-    /// <summary>
-    /// Справочник активности.
-    /// </summary>
-    /// 
     [Serializable]
     public class Activity
     {
-        /// <summary>
-        /// Название активности.
-        /// </summary>
+        public int Id { get; set; }
         public string Name { get; set; }
 
-        /// <summary>
-        /// Сжигание калориев в минуту.
-        /// </summary>
+        public virtual ICollection<Exercise> Exercises { get; set; }
+
         public double CaloriesPerMinute { get; set; }
 
-        /// <summary>
-        /// Создание активность.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="caloriesPerMinute"></param>
+        public Activity() { }
+
         public Activity(string name, double caloriesPerMinute)
         {
+            // Проверка
+
             Name = name;
             CaloriesPerMinute = caloriesPerMinute;
         }
